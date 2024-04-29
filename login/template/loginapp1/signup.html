@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        /* Styling for the message */
+        #msg {
+            display: none;
+            position: fixed;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #000000;
+            color: white;
+            border-radius: 8px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome Signup page</h1>
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username"><br>
+        <input type="text" placeholder="Name" name="name"><br>
+
+        <input type="password" placeholder="Password" name="password"><br>
+        <button>Sign Up</button>
+    </form>
+    <div id="msg">{% if msg %}{{ msg }}{% endif %}</div>
+    <script>
+        // Show the message after 3 seconds
+        setTimeout(function() {
+            document.getElementById("msg").style.display = "block";
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
+</body>
+</html>
