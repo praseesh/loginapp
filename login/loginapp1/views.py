@@ -8,7 +8,7 @@ def user_signup(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         if username and password:
-           
+   
             hashed_password = make_password(password)
             user = User(username=username, password=password)  
             return redirect('login')  # Redirect to login after signup
