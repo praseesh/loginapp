@@ -32,7 +32,6 @@ def user_login(request):
             return render(request, 'login.html',{'msg':"Invalid Username or Password"} )
         
     return render(request, 'login.html')
-        
  
 def home(request):
     if 'username' in request.session:
